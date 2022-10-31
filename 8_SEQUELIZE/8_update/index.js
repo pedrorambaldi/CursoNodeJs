@@ -86,7 +86,7 @@ app.post("/users/update", async (req, res) => {
 
   await User.update(userData, { where: { id: id } });
 
-  res.redirect('/')
+  res.redirect("/");
 });
 
 app.get("/", async (req, res) => {
@@ -99,6 +99,7 @@ app.get("/", async (req, res) => {
 
 conn
   .sync()
+  //.sync({ force: true })
   .then(() => {
     app.listen(3000);
   })
